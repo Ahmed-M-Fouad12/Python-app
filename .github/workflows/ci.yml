@@ -1,21 +1,23 @@
-name : Python CI
+name: Python CI
+
 on:
   push:
-  branches : [main]
-  pull_requests :
-  branches : [main]
-  jobs:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+jobs:
   build:
-  runs-on: ubuntu-latest
-  steps:
-  name: Checkout code
-  uses: actions/checkout@v2
-  name: Set up Python
-  uses: actions/setup-python@v3
-  with: 
-  python-version: '3.x'
-  name: Run hello.py
-  run: python hello.py
-  
-  
-    
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v2
+
+    - name: Set up Python
+      uses: actions/setup-python@v3
+      with:
+        python-version: '3.x'
+
+    - name: Run hello.py
+      run: python hello.py
